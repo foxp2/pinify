@@ -1,14 +1,14 @@
 (function() {
   /*
-  * jQuery pinify Plugin v1.3
-  * http://ie9ify.codeplex.com
-  *
-  * Copyright 2011, Brandon Satrom and Clark Sell
-  * Licensed under an Apache Foundation License.
-  * http://github.com/bsatrom/pinify
-  *
-  * Date: Monday Nov 07 2011 12:44:28 -06
-  */
+* jQuery pinify Plugin v1.3
+* http://ie9ify.codeplex.com
+*
+* Copyright 2011, Brandon Satrom and Clark Sell
+* Licensed under an Apache Foundation License.
+* http://github.com/bsatrom/pinify
+*
+* Date: Monday Nov 07 2011 12:44:28 -06
+*/
   var __hasProp = Object.prototype.hasOwnProperty;
   (function($) {
     var callWindowExternalSafely, createMetaTag, methods, siteModeSupported;
@@ -98,7 +98,7 @@
         teaser = $(this);
         defaultOptions = {
           type: "hangingChad",
-          icon: "http://" + location.host + "/favicon.ico",
+          icon: document.location.pathname.slice(0,document.location.pathname.lastIndexOf('/')) + "/favicon.ico",
           pinText: "Drag this image to the taskbar to pin this site",
           secondaryText: "Simply drag the icon or tab to the taskbar to pin.",
           addStartLink: false,
@@ -264,23 +264,23 @@
       }
     };
     /*
-      * pinify Utility Functions
-      *  firstRunState: determines wheter a pinned site has been lanched for the first time
-      *  isPinned: Returns true if the site is pinned to the taskbar, false if not
-      *  addJumpList: Given options, adds jumplist items to a pinned window
-      *  clearJumpList: Clears all dynamic jumplist items from the pinned window 
-      *  addOverlay: Given options, adds an overlay icon to the taskbar for the pinned site
-      *  clearOverlay: Clears the current overlay icon
-      *  flashTaskbar: Flashes the taskbar box of a pinned site
-      *  createThumbbarButtons: creates buttons on the pinned site preview window thumbbar, and wires events to respond to button clicks
-      */
+* pinify Utility Functions
+* firstRunState: determines wheter a pinned site has been lanched for the first time
+* isPinned: Returns true if the site is pinned to the taskbar, false if not
+* addJumpList: Given options, adds jumplist items to a pinned window
+* clearJumpList: Clears all dynamic jumplist items from the pinned window
+* addOverlay: Given options, adds an overlay icon to the taskbar for the pinned site
+* clearOverlay: Clears the current overlay icon
+* flashTaskbar: Flashes the taskbar box of a pinned site
+* createThumbbarButtons: creates buttons on the pinned site preview window thumbbar, and wires events to respond to button clicks
+*/
     return $.pinify = {
       /*
-        	* Return Values
-        	* 0 = The pinned site is not in a first run state, or is not pinned
-        	* 1 = First run from a drag and drop operation
-        	* 2 = First run from a shortcut added to the Start menu (msAddSiteMode)
-        	*/
+* Return Values
+* 0 = The pinned site is not in a first run state, or is not pinned
+* 1 = First run from a drag and drop operation
+* 2 = First run from a shortcut added to the Start menu (msAddSiteMode)
+*/
       firstRunState: function(preserveState) {
         if (!siteModeSupported()) {
           return 0;
